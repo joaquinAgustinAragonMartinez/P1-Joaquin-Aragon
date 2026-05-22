@@ -11,16 +11,18 @@ void setup()
 
 void loop()
 {
-  for (int R = 0; R < 256; R ++)
+  for (int G = 0; G <= 255; G += 50)
   {
-    for (int G = 0; G < 256; G ++)
+    analogWrite(LEDG, G);
+    delay(200);
+    for (int B = 0; B <= 255; B += 50)
     {
-      for (int B = 0; B < 256; B ++)
+      analogWrite(LEDB, B);
+      delay(200);
+      for (int R = 0; R <= 255; R += 50)
       {
         analogWrite(LEDR, R);
-        analogWrite(LEDG, G);
-        analogWrite(LEDB, B);
-        delay(1);
+        delay(200);
       }
     }
   }
